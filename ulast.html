@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewpoint" content="width=device-width ,initial-scale=1.0">
+    <title>Login Form</title>
+    <link rel="stylesheet" href="styley.css">
+   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   
+ </head>
+
+<body>
+  
+  <div class="container">
+
+      <form  class="form" id="form" >
+       <div class="container1">
+        <span class="icon">
+          <i class="fa fa-user"></i>
+        </span>
+        <input type="text" name="email" id="email" class="box" placeholder="Enter Email ID"><br>
+        <span class="Error" id="emailerror"></span>
+       </div>
+
+       <div class="container1">
+        <span class="icon">
+          <i class="fa fa-key"></i>
+        </span>
+        <input type="password" name="password" id="password" class="box" placeholder="Enter password"><br>
+        <span class="Error" id="passerror"></span>
+       </div>
+
+       <div class="container1">
+        
+          <i class="fa fa-check"></i>
+        
+        <span class="remember-me">Remember Me</span>
+        <input type="submit" value="Login" class="submit" onclick="validCheck()">
+       </div>
+
+       <div class="container1">
+        <a href="#" class="register-now">Register Now</a>
+        <a href="#" class="forgot-password">Forgot Password</a>
+        
+       </div>
+     
+
+      </form>
+  </div>
+
+   <script>
+    function validCheck(){
+      var form=document.getElementById('form');
+      var email=document.getElementById('email').value;
+      var pass=document.getElementById('password');
+
+      var regex = new RegExp(/\S+@\S+\.\S+/);
+  var isvalid=regex.test(email);
+        if(email== '' && pass.value== '')
+        {
+            document.getElementById('emailerror').innerHTML= "Please Enter Email Id";
+            document.getElementById('passerror').innerHTML=" Please Enter Password";
+
+           return false;
+          
+        }
+        else if(email == '')
+        {
+           document.getElementById('emailerror').innerHTML=" Please Enter Email Id";
+           return false;
+         
+        }
+        else if(pass.value == '')
+        {
+           document.getElementById('passerror').innerHTML=" Please Enter Password";
+           return false;
+         
+        }
+       else if(isvalid) 
+        {
+            document.getElementById('emailerror').innerHTML='' ;
+          console.log("Success!");
+           return false;
+         } 
+         else {
+            document.getElementById('emailerror').innerHTML="  Please Enter Valid Email";
+           return false;
+
+         }
+       
+
+    }
+
+   </script>
+
+
+
+  </body>
+</html>
